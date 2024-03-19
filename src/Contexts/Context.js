@@ -9,7 +9,15 @@ export default function AuthProvider({ children }) {
 
   async function handleLogar(email, password) {
     try {
-      console.log(email, password);
+      const resposta = await apiLocal.post("/LoginUsuarios", {
+        email,
+        password,
+      });
+      //   if (resposta.data.id) {
+      //     const token = resposta.data.token;
+      //     localStorage.setItem("@tklogin2023", JSON.stringify(token));
+      //   }
+      console.log(resposta);
     } catch (err) {
       alert("Erro de login");
     }
