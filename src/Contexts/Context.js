@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import apiLocal from "../api/ApiLocal";
 
 export const Contexts = createContext();
@@ -13,13 +14,10 @@ export default function AuthProvider({ children }) {
         email,
         password,
       });
-      //   if (resposta.data.id) {
-      //     const token = resposta.data.token;
-      //     localStorage.setItem("@tklogin2023", JSON.stringify(token));
-      //   }
+
       console.log(resposta);
     } catch (err) {
-      alert("Erro de login");
+      toast.error(err.response.data.error);
     }
   }
 

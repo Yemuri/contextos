@@ -15,9 +15,7 @@ export default function Login() {
         return;
       }
       await handleLogar(email, password);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
 
   return (
